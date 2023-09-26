@@ -22,29 +22,14 @@ $(document).ready(function () {
       $('.amenities h4').text(amenStr.substring(0, 20) + '...');
     }
   });
-  $.get('http://0.0.0.0:5001/api/v1/status/', function(data, textStatus) {
-    if (textStatus === "success") {
-        if (data.status === "OK") {
-            $('#api_status').addClass('available');
-        } else {
-            $('#api_status').removeClass('available');
-        }
-    }
-});
 
-  // const getUrl = 'http://0.0.0.0:5001/api/v1/status/';
-  // $.ajax({
-  //   type: 'GET',
-  //   url: getUrl,
-  //   success: function(data) {
-  //     console.log(data.status);
+  $.get('http://0.0.0.0:5001/api/v1/status/', function (data, textStatus) {
+    if (textStatus === 'success') {
+      if (data.status === 'OK') {
+        $('#api_status').addClass('available');
+      } else {
+        $('#api_status').removeClass('available');
+      }
     }
-  // const request = require('request');
-  // request(url, function (content) {
-  //   console.log(content);
-    // if (error) {
-    //   console.error(error);
-    // }
-    // console.log('code:', response && response.statusCode); // Print the response status code if a response was received
   });
 });
